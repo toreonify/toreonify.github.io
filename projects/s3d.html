@@ -1,33 +1,53 @@
 <html>
 <head>
-	<title>IDE drive emulator using SD card</title>
+	<title>toreonify's blog</title>
+	<link rel="stylesheet" href="/style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
-<body style="width: 800px; text-align: justify;">
-	<h1>IDE drive emulator using SD card</h1>
+<body>
+	<h1>toreonify stories</h1>
+	<p>tinkering with stuff</p>
+	
+	<div class="menu">
+		<a href="/">home</a>
+		<a href="/gallery.html">gallery</a>
+		<a href="/contacts.html">contacts</a>
+	</div>
+<h1 id="IDE%20drive%20emulator%20using%20SD%20card">IDE drive emulator using SD card</h1>
 
-	<p>After trying to implement this project using AVR microcontroller in assembly language, I switched to CPLD/FPGA, because:</p>
-	<ul>
-        <li>not able to read I/O ports fast enough</li>
-        <li>not able to set interrupt on random pin</li>
-        <li>not able to debug properly</li>
-	</ul>
-	
-	<p>Now project faces other problems, but at least we can deal with previous problems.</p>
-	<ul>
-        <li>CPLD/FPGA is stupid fast (50 MHz is the common limit)</li>
-        <li>Verilog allows us to simulate logic that have been implemeted</li>
-        <li>Parallel tasks like reading SD card and processing IDE bus logic</li>
-        <li>Events on pin/register change</li>
-	</ul>
-	
-	<p>As of November 26, there's implemetation for accepting IDE signals, few commands and software debug/test interface. ATA-2 standard is my guide and also code in PCem. PCem has open source and simple code structure. That allows us to connect some Verilog interpreter/compliler and connect its I/O with PCem I/O. And it works very well! Verilator is used to compile Verilog to C++ and wrapper is used to communicate between C++ form Verilator to C in PCem.</p>
-	
-	<img src="/img/s3d_1.jpg"></img>
-	<img src="/img/s3d_2.jpg"></img>
-	
-	<p>Right now, I have tested implementaion on AMI BIOS from 1990, that requires to implement simple commands to pass POST. After that, it tries to read first byte of the disk and fails. Considering that I have used VMware's Cascade interpreter to connect Verilog to PCem, it is night and day! Cascade won't evaluate commands in sequential order and mess up output, Verilator maps all I/O to properties of an object in C++. It is a breeze to use Verilator for testbenches.</p>
-	
-	<p>Check out <a href="https://zipcpu.com">zipcpu.com</a> for more infromation on FPGAs and Verilator (it is used to test a CPU core!).</p>
+<p>After trying to implement this project using AVR microcontroller in assembly language, I switched to CPLD&#47;FPGA, because:</p>
+
+<ul>
+<li>not able to read I&#47;O ports fast enough</li>
+<li>not able to set interrupt on random pin</li>
+<li>not able to debug properly</li>
+</ul>
+
+<p>Now project faces other problems, but at least we can deal with previous problems.</p>
+
+<ul>
+<li>CPLD&#47;FPGA is stupid fast (50 MHz is the common limit)</li>
+<li>Verilog allows us to simulate logic that have been implemeted</li>
+<li>Parallel tasks like reading SD card and processing IDE bus logic</li>
+<li>Events on pin&#47;register change</li>
+</ul>
+
+<p>As of November 26, there&#39;s implemetation for accepting IDE signals, few commands and software debug&#47;test interface. ATA-2 standard is my guide and also code in PCem. PCem has open source and simple code structure. That allows us to connect some Verilog interpreter&#47;compliler and connect its I&#47;O with PCem I&#47;O. And it works very well! Verilator is used to compile Verilog to C++ and wrapper is used to communicate between C++ form Verilator to C in PCem.</p>
+
+<p><img src="/img/s3d_1.jpg" alt="" /></p>
+
+<p><img src="/img/s3d_2.jpg" alt="" /></p>
+
+<p>Right now, I have tested implementaion on AMI BIOS from 1990, that requires to implement simple commands to pass POST. After that, it tries to read first byte of the disk and fails. Considering that I have used VMware&#39;s Cascade interpreter to connect Verilog to PCem, it is night and day! Cascade won&#39;t evaluate commands in sequential order and mess up output, Verilator maps all I&#47;O to properties of an object in C++. It is a breeze to use Verilator for testbenches.</p>
+
+<p>Check out <a href="https://zipcpu.com">zipcpu.com</a> for more infromation on FPGAs and Verilator (it is used to test a CPU core!).</p>
+
+<h3 id="Update%20(June%202020)">Update (June 2020)</h3>
+
+<p>You can read about a new implementation in my <a href="https://drive.google.com/file/d/1ROONB1daBrO5NDGNVVKSNhqlZZLtj6YI/view?usp=sharing">bachelor&#39;s thesis</a>. More detailed article will be coming after I finish testing this project on Lattice iCE40 dev. board.</p>
+	<footer>
+		<p>&copy; toreonify 2018 – 2020.</p>
+		<p>built using <a href="https://www.romanzolotarev.com/ssg.html">ssg</a> and <a href="https://kristaps.bsd.lv/lowdown/">lowdown</a>.</p>
+	</footer>
 </body>
-
 </html>

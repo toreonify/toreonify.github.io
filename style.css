@@ -1,0 +1,45 @@
+body {
+	width: 60%;
+	
+	margin-left: auto;
+	margin-right: auto;
+	
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+footer {
+	padding-top: 100px;
+}
+
+.menu {
+	border-bottom: 2px solid #315692;
+	padding-bottom: 0.4em;
+}
+
+.menu > a {
+	font-size: 1.2em;
+}
+
+a:any-link {
+	color: #315692;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+details img {
+	border: 2px solid #315692;
+	margin-bottom: 0.4em;
+	margin-top: 0.4em;
+	
+	max-width: 100%;
+}
+
+div.gifs > img {
+	height: 240px;
+	
+	padding-right: 0.4em;
+	padding-bottom: 0.4em;
+}
